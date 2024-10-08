@@ -14,14 +14,14 @@ function ImageSlider({ images }) {
 
   function nextImg() {
     setImageIndex((index) => {
-      if (index === images.length - 1) return 0
-      return index + 1
+      if (index === images.length - 1) return 0;
+      return index + 1;
     });
   }
   function prevImg() {
     setImageIndex((index) => {
-      if (index === 0) return images.length - 1
-      return index - 1
+      if (index === 0) return images.length - 1;
+      return index - 1;
     });
   }
 

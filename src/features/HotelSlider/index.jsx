@@ -139,6 +139,30 @@ function HotelSlider(props) {
       price: ["650.000", "1.200.000"],
       description: ["Mỗi đêm", "bao gồm thuế & phí"],
     },
+    {
+      id: 10,
+      images: [img9_1, img9_2, img9_3, img9_4],
+      title: ["Phú Nhuận, TP. Hồ Chí Minh", "Muong Thanh Luxury Saigon Hotel"],
+      rating: ["9.4", "Tuyệt vời", "(142 nhận xét)"],
+      price: ["650.000", "1.200.000"],
+      description: ["Mỗi đêm", "bao gồm thuế & phí"],
+    },
+    {
+      id: 11,
+      images: [img9_1, img9_2, img9_3, img9_4],
+      title: ["Phú Nhuận, TP. Hồ Chí Minh", "Muong Thanh Luxury Saigon Hotel"],
+      rating: ["9.4", "Tuyệt vời", "(142 nhận xét)"],
+      price: ["650.000", "1.200.000"],
+      description: ["Mỗi đêm", "bao gồm thuế & phí"],
+    },
+    {
+      id: 12,
+      images: [img9_1, img9_2, img9_3, img9_4],
+      title: ["Phú Nhuận, TP. Hồ Chí Minh", "Muong Thanh Luxury Saigon Hotel"],
+      rating: ["9.4", "Tuyệt vời", "(142 nhận xét)"],
+      price: ["650.000", "1.200.000"],
+      description: ["Mỗi đêm", "bao gồm thuế & phí"],
+    },
   ];
 
   const [cardIndex, setCardIndex] = useState("0");
@@ -178,17 +202,18 @@ function HotelSlider(props) {
     );
   }
 
-  const [slider, setSlider] = useState(1);
   function SlidersTo() {
+    const [slider, setSlider] = useState(1); // Default to scrolling 1 slide
+
     useEffect(() => {
-      const slickSlider = document.querySelector(".slider_right_btn");
+      const slickSlider = document.querySelector(".slick-slider");
 
       const handleMouseEnter = () => {
-        setSlider(2); // Set slider to 2 when hovered
+        setSlider(2); // Change slidesToScroll to 2 when hovered
       };
 
       const handleMouseLeave = () => {
-        setSlider(1); // Set slider back to 1 when not hovered
+        setSlider(1); // Revert slidesToScroll to 1 when mouse leaves
       };
 
       if (slickSlider) {
@@ -196,14 +221,16 @@ function HotelSlider(props) {
         slickSlider.addEventListener("mouseleave", handleMouseLeave);
       }
 
-      // Cleanup listeners when component unmounts
+      // Cleanup on unmount
       return () => {
         if (slickSlider) {
           slickSlider.removeEventListener("mouseenter", handleMouseEnter);
           slickSlider.removeEventListener("mouseleave", handleMouseLeave);
         }
       };
-    }, []);
+    }, []); // Run only once, when component mounts
+
+    return slider;
   }
 
   var settings = {
@@ -211,7 +238,7 @@ function HotelSlider(props) {
     infinite: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: slider,
+    slidesToScroll: SlidersTo(),
     autoplay: true,
     autoplaySpeed: 5000,
     pauseOnHover: true,
@@ -240,15 +267,6 @@ function HotelSlider(props) {
             />
           </div>
         ))}
-        {/* </div> */}
-        {/* <div className="slider_btn">
-          <button onClick={prevImg}>
-            <KeyboardArrowLeft />
-          </button>
-          <button onClick={nextImg}>
-            <KeyboardArrowRight />
-          </button>
-        </div> */}
       </Slider>
     </div>
   );
