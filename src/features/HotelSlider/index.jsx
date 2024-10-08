@@ -56,6 +56,7 @@ import {
   KeyboardArrowRight,
   Settings,
 } from "@mui/icons-material";
+import CardScripts from "./CardScripts";
 
 HotelSlider.propTypes = {};
 
@@ -71,7 +72,7 @@ function HotelSlider(props) {
       images: [img1_1, img1_2, img1_3, img1_4],
       title: ["TP. Hồ Chí Minh", "Paradise Saigon Boutique Hotel & Spa"],
       rating: ["8.1", "Tuyệt vời", "(2.585 nhận xét)"],
-      price: ["900.000 &#8363", "1.500.000 &#8363"],
+      price: ["900.000", "1.500.000"],
       description: ["Mỗi đêm", "bao gồm thuế & phí"],
     },
     {
@@ -79,7 +80,7 @@ function HotelSlider(props) {
       images: [img2_1, img2_2, img2_3, img2_4],
       title: ["Hoàn Kiếm, Hà Nội", "Hanoi Pearl Hotel"],
       rating: ["8.8", "Tuyệt vời", "(950 nhận xét)"],
-      price: ["800.000 &#8363", "1.050.000 &#8363"],
+      price: ["800.000", "1.050.000"],
       description: ["Mỗi đêm", "bao gồm thuế & phí"],
     },
     {
@@ -87,7 +88,7 @@ function HotelSlider(props) {
       images: [img3_1, img3_2, img3_3, img3_4],
       title: ["Thanh Khê, Đà Nẵng", "Ocean View Danang Hotel"],
       rating: ["9.0", "Tuyệt vời", "(86 nhận xét)"],
-      price: ["399.654 &#8363", "700.489 &#8363"],
+      price: ["399.654", "700.489"],
       description: ["Mỗi đêm", "bao gồm thuế & phí"],
     },
     {
@@ -95,7 +96,7 @@ function HotelSlider(props) {
       images: [img4_1, img4_2, img4_3, img4_4],
       title: ["Ninh Kiều, Cần Thơ", "Ninh Kieu Riverside Hotel"],
       rating: ["8.7", "Rất tốt", "(78 nhận xét)"],
-      price: ["320.000 &#8363", "700.000 &#8363"],
+      price: ["320.000", "700.000"],
       description: ["Mỗi đêm", "bao gồm thuế & phí"],
     },
     {
@@ -103,7 +104,7 @@ function HotelSlider(props) {
       images: [img5_1, img5_2, img5_3, img5_4],
       title: ["Vũng Tàu, Bà Rịa - Vũng Tàu", "Vung Tau Sunset Hotel"],
       rating: ["9.3", "Tuyệt vời", "(132 nhận xét)"],
-      price: ["620.000 &#8363", "1.100.000 &#8363"],
+      price: ["620.000", "1.100.000"],
       description: ["Mỗi đêm", "bao gồm thuế & phí"],
     },
     {
@@ -111,7 +112,7 @@ function HotelSlider(props) {
       images: [img6_1, img6_2, img6_3, img6_4],
       title: ["Hải Châu, Đà Nẵng", "The Dream Suite Danang"],
       rating: ["8.5", "Rất tốt", "(112 nhận xét)"],
-      price: ["480.000 &#8363", "880.000 &#8363"],
+      price: ["480.000", "880.000"],
       description: ["Mỗi đêm", "bao gồm thuế & phí"],
     },
     {
@@ -119,7 +120,7 @@ function HotelSlider(props) {
       images: [img7_1, img7_2, img7_3, img7_4],
       title: ["Dương Đông, Phú Quốc", "Sea Breeze Hotel"],
       rating: ["9.1", "Tuyệt vời", "(67 nhận xét)"],
-      price: ["550.000 &#8363", "950.000 &#8363"],
+      price: ["550.000", "950.000"],
       description: ["Mỗi đêm", "bao gồm thuế & phí"],
     },
     {
@@ -127,7 +128,7 @@ function HotelSlider(props) {
       images: [img8_1, img8_2, img8_3, img8_4],
       title: ["Hoàn Kiếm, Hà Nội", "Old Quarter View Hanoi Hostel"],
       rating: ["8.9", "Tuyệt vời", "(83 nhận xét)"],
-      price: ["420.000 &#8363", "790.000 &#8363"],
+      price: ["420.000", "790.000"],
       description: ["Mỗi đêm", "bao gồm thuế & phí"],
     },
     {
@@ -135,7 +136,7 @@ function HotelSlider(props) {
       images: [img9_1, img9_2, img9_3, img9_4],
       title: ["Phú Nhuận, TP. Hồ Chí Minh", "Muong Thanh Luxury Saigon Hotel"],
       rating: ["9.4", "Tuyệt vời", "(142 nhận xét)"],
-      price: ["650.000 &#8363", "1.200.000 &#8363"],
+      price: ["650.000", "1.200.000"],
       description: ["Mỗi đêm", "bao gồm thuế & phí"],
     },
   ];
@@ -162,7 +163,7 @@ function HotelSlider(props) {
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
     return (
-      <div className={`slider_left_btn`} onClick={onClick}>
+      <div className={`slider_right_btn`} onClick={onClick}>
         <KeyboardArrowRight />
       </div>
     );
@@ -171,7 +172,7 @@ function HotelSlider(props) {
   function SamplePrevArrow(props) {
     const { className, style, onClick } = props;
     return (
-      <div className={`slider_right_btn`} onClick={onClick}>
+      <div className={`slider_left_btn`} onClick={onClick}>
         <KeyboardArrowLeft />
       </div>
     );
@@ -220,22 +221,28 @@ function HotelSlider(props) {
 
   return (
     <div className="HotelSlider">
-      <SliderHeader header={header} />
+      <SliderHeader
+        header={header}
+        style={{
+          background: "linear-gradient(rgba(100,100,100,0),rgba(0,0,0,0.3))",
+        }}
+      />
       <Slider {...settings}>
         {/* <div
           className="Cards"
           style={{ translate: `${-(310 + 20) * cardIndex}px` }}
         > */}
         {Hotels.map((hotel, index) => (
-          <div key={index} className="container">
+          <div key={index}>
             <ImageSlider images={hotel.images} />
-            {/* <CardScripts
+            <CardScripts
               scripts={[
                 hotel.title,
                 hotel.rating,
                 hotel.price,
                 hotel.description,
-              ]}/> */}
+              ]}
+            />
           </div>
         ))}
         {/* </div> */}

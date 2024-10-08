@@ -1,0 +1,45 @@
+.CardScripts{
+    color: white;
+}
+
+.cardTitle{
+    margin: 12px 0 6px 0;
+    height: 70px;
+}
+
+.rateNumber{
+    color: white;
+    background-color: #e85367;
+    padding: 0 4px 0 4px;
+    border-radius: 4px;
+}
+
+.feedback{
+    font-size: 12px;
+    margin: 3px 0;
+    color: white;
+    border-radius: 4px;
+}
+
+.cardPrice{
+    font-size: 1.3rem;
+}
+
+del{
+    font-size: 0.8rem;
+}
+
+.cardTag{
+    width: fit-content;
+    line-height: 24px;
+    background-color: #355c7d;
+    color: #ffffffe3;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 2px 5px 2px 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    gap: 5px;
+}
