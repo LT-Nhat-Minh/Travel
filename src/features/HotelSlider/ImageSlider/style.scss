@@ -1,0 +1,33 @@
+.body{
+    width: 100%;
+    height: fit-content;
+    position: relative;
+}
+img{
+    width: 100%;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    transition: 0.3s ease;
+}
+.btn{
+    all: unset;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    & > *{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 36px;
+        margin: 10px;
+        border-radius: 50%;
+        background-color: white;
+        border: none;
+        cursor: pointer;
+    }
+}
