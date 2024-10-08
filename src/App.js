@@ -5,7 +5,6 @@ import NavBar from "./features/NavBar";
 function App() {
   return (
     <div>
-      <NavBar />
       <HotelSlider />
     </div>
   );

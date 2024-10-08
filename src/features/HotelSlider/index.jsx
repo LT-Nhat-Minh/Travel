@@ -220,13 +220,8 @@ function HotelSlider(props) {
   };
 
   return (
-    <div className="HotelSlider">
-      <SliderHeader
-        header={header}
-        style={{
-          background: "linear-gradient(rgba(100,100,100,0),rgba(0,0,0,0.3))",
-        }}
-      />
+    <div className="HotelSlider" style={{ marginTop: "200px" }}>
+      <SliderHeader header={header} />
       <Slider {...settings}>
         {/* <div
           className="Cards"
