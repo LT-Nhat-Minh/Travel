@@ -1,26 +1,36 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import "./style.scss";
-import logo from "./Logo.png";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import TextField from "@mui/material/TextField";
+import React from "react";
+import logo from "./Logo.png";
+import "./style.scss";
 
 HeadBar.propTypes = {};
 
 function HeadBar(props) {
-  const [open, setOpen] = useState(false);
+  const [login, setLogin] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
+  const handleClickOpenLogin = () => {
+    setLogin(true);
+    handleCloseSignin();
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  const handleCloseLogin = () => {
+    setLogin(false);
+  };
+
+  const [signin, setSignin] = React.useState(false);
+
+  const handleClickOpenSignin = () => {
+    setSignin(true);
+    handleCloseLogin();
+  };
+
+  const handleCloseSignin = () => {
+    setSignin(false);
   };
 
   return (
@@ -33,16 +43,16 @@ function HeadBar(props) {
         </div>
         <div>
           <button id="myCheckinBtn">Đặt chỗ của tôi</button>
-          <button id="loginBtn" onClick={handleClickOpen}>
+          <button id="loginBtn" onClick={handleClickOpenLogin}>
             Đăng Nhập
           </button>
-          <button id="signinBtn" onClick={handleClickOpen}>
+          <button id="signinBtn" onClick={handleClickOpenSignin}>
             Đăng ký
           </button>
         </div>
       </div>
       <Dialog
-        open={open}
+        open={login}
         PaperProps={{
           component: "form",
           onSubmit: (event) => {
@@ -51,29 +61,73 @@ function HeadBar(props) {
             const formJson = Object.fromEntries(formData.entries());
             const email = formJson.email;
             console.log(email);
-            handleClose();
+            handleCloseLogin();
           },
         }}
       >
-        <DialogTitle className="dialogTiltle">
-          <button className="formLogin">Đăng Nhập</button>
-          <button className="formSignin">Đăng Ký</button>
+        <DialogTitle>
+          <Button color="inherit" onClick={handleClickOpenLogin}>
+            Đăng nhập
+          </Button>
+          <Button color="inherit" onClick={handleClickOpenSignin}>
+            Đăng ký
+          </Button>
         </DialogTitle>
-        <DialogContent>
+        <DialogContent className="dialogContent">
+          <TextField id="loginEmail" label="Email" variant="outlined" />
           <TextField
-            autoFocus
-            required
-            margin="dense"
-            id="name"
-            name="email"
-            label="Email Address"
-            type="email"
-            fullWidth
-            variant="standard"
+            id="loginPsw"
+            label="Password"
+            type="password"
+            autoComplete="current-password"
           />
+          <Button type="submit">Đăng nhập</Button>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleCloseLogin}>Cancel</Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog
+        open={signin}
+        PaperProps={{
+          component: "form",
+          onSubmit: (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.currentTarget);
+            const formJson = Object.fromEntries(formData.entries());
+            const email = formJson.email;
+            console.log(email);
+            handleCloseSignin();
+          },
+        }}
+      >
+        <DialogTitle>
+          <Button color="inherit" onClick={handleClickOpenLogin}>
+            Đăng nhập
+          </Button>
+          <Button color="inherit" onClick={handleClickOpenSignin}>
+            Đăng ký
+          </Button>
+        </DialogTitle>
+        <DialogContent className="dialogContent">
+          <TextField id="loginEmail" label="Email" variant="outlined" />
+          <TextField
+            id="loginPsw"
+            label="Password"
+            type="password"
+            autoComplete="current-password"
+          />
+          <TextField
+            id="loginPsw_check"
+            label="Confirm Password"
+            type="password"
+            autoComplete="current-password"
+          />
+          <Button type="submit">Đăng ký</Button>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseSignin}>Cancel</Button>
         </DialogActions>
       </Dialog>
     </div>

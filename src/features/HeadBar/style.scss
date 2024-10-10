@@ -44,12 +44,14 @@
 }
 
 
-.dialogTiltle{
+.dialogContent{
     display: flex;
-    width: 100%;
-    justify-content: space-between;
+    flex-direction: column;
+    width: 400px;
+    gap: 20px;
+    padding: 20px 24px !important;
     & > button{
-        all: unset;
-        
+        background-color: #00a2ff;
+        color: white;
     }
 }
