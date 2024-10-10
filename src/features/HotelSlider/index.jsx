@@ -1,9 +1,8 @@
-import React from "react";
-import ImageSlider from "./ImageSlider";
-import { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import ImageSlider from "./components/ImageSlider";
 import "./style.scss";
 
 import img1_1 from "./HotelsImages/1/1.jpg";
@@ -46,17 +45,13 @@ import img8_2 from "./HotelsImages/8/2.jpg";
 import img8_3 from "./HotelsImages/8/3.jpg";
 import img8_4 from "./HotelsImages/8/4.jpg";
 
+import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import img9_1 from "./HotelsImages/9/1.jpg";
 import img9_2 from "./HotelsImages/9/2.jpg";
 import img9_3 from "./HotelsImages/9/3.jpg";
 import img9_4 from "./HotelsImages/9/4.jpg";
-import SliderHeader from "./SliderHeader";
-import {
-  KeyboardArrowLeft,
-  KeyboardArrowRight,
-  Settings,
-} from "@mui/icons-material";
-import CardScripts from "./CardScripts";
+import CardScripts from "./components/CardScripts";
+import SliderHeader from "./components/SliderHeader";
 
 HotelSlider.propTypes = {};
 

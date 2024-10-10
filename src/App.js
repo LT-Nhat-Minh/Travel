@@ -1,11 +1,10 @@
 import "./App.css";
-import HotelSlider from "./features/HotelSlider";
-import NavBar from "./features/NavBar";
+import HeadBar from "./features/HeadBar";
 
 function App() {
   return (
     <div>
-      <HotelSlider />
+      <HeadBar />
     </div>
   );
 }
