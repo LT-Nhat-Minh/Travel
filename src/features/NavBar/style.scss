@@ -1,0 +1,11 @@
+.dialogContent{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    gap: 20px;
+    padding: 20px 24px !important;
+    & > button{
+        background-color: #00a2ff;
+        color: white;
+    }
+}
